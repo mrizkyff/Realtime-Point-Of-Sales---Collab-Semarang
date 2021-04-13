@@ -55,53 +55,11 @@
 <script src="<?php echo base_url() ?>/asset/dist/js/adminlte.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo base_url() ?>/asset/dist/js/pages/dashboard.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?php echo base_url() ?>/asset/dist/js/demo.js"></script>
 
 <!-- DataTables -->
 <!-- javasccript cdn -->
-<!-- <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script> -->
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
-<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script> -->
 
-<!-- <script>
-  $(document).ready(function() {
-    $('#tableBarangPerencanaan').DataTable();
-    tampilDataBarang();
-
-    function tampilDataBarang(){
-            $.ajax({
-                type    : 'GET',
-                url     : '<?php echo base_url()?>/BrgPerencanaan/dataBarang',
-                async   : true,
-                dataType : 'json',
-                success : function(data){
-                    var html = '';
-                    var i;
-                    for(i=0;i<data.length; i++){
-                        html += '<tr>'+
-                                    '<td>'+data[i].id+'</td>'+
-                                    '<td>'+data[i].nama+'</td>'+
-                                    '<td>'+data[i].merk+'</td>'+
-                                    '<td>'+data[i].no_seri+'</td>'+
-                                    '<td>'+data[i].harga+'</td>'+
-                                    '<td>'+data[i].jumlah+'</td>'+
-                                    '<td>'+data[i].keterangan+'</td>'+
-                                    '<td>'+data[i].spec+'</td>'+
-                                    '<td style "text-align:right;">'+
-                                        '<a href="javascript:;" class="btn btn-info btn-xs item_edit" data="'+data[i].id+'">Edit</a>'+' '+
-                                        '<a href="javascript:;" class="btn btn-danger btn-xs item_hapus" data="'+data[i].id+'">Hapus</a>'+
-                                    '</td>'+
-                                '</tr>';
-                    }
-                    $('#show_brg_perencanaan').html(html);
-                }
-            });
-      }
-
-
-} );
-</script> -->
 </body>
 </html>
