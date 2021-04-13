@@ -5,6 +5,10 @@
             parent::__construct();
             $this->load->model('M_Product');
         }
+        function json() {
+            header('Content-Type: application/json');
+            echo $this->M_Product->json();
+        }
         public function getAllProduk(){
             $data = $this->M_Product->get_all_product();
             echo json_encode($data);

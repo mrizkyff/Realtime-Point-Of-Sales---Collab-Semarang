@@ -32,28 +32,29 @@
         <table id='tableProduk' class="table table-stripped">
           <thead>
             <th>NO</th>
-            <th>ID</th>
-            <th>Kode Barang</th>
+            <th>Kode Produk</th>
             <th>Jenis</th>
-            <th>Nama Barang</th>
+            <th>Nama Produk</th>
             <th>Harga</th>
-            <th style="width: 300px">Deskripsi</th>
-            <th>Tanggal Stok</th>
-            <th>Foto</th>
+            <th>Deskripsi</th>
+            <th>Tanggal</th>
+            <th>Foto Produk</th>
+            <th>Tersedia</th>
+            <th>Tenant</th>
             <th>Action</th>
           </thead>
-          <tbody id='show_produk'>
-          </tbody>
+          
           <tfoot>
-            <th>NO</th>
-            <th>ID</th>
-            <th>Kode Barang</th>
+          <th>NO</th>
+            <th>Kode Produk</th>
             <th>Jenis</th>
-            <th>Nama Barang</th>
+            <th>Nama Produk</th>
             <th>Harga</th>
-            <th style="width: 300px">Deskripsi</th>
-            <th>Tanggal Stok</th>
-            <th>Foto</th>
+            <th>Deskripsi</th>
+            <th>Tanggal</th>
+            <th>Foto Produk</th>
+            <th>Tersedia</th>
+            <th>Tenant</th>
             <th>Action</th>
           </tfoot>
         </table>
@@ -159,34 +160,12 @@
                     <input type="text" class="form-control" id="nmbrgx" name="nmbrgx" placeholder="Nama Produk">
                   </div>
                   <div class="form-group">
-                    <label for="kategorix">Kategori</label>
-                    <select name="kategorix" id="kategorix" class="form-control">
-                      <option value="">Pilih Kategori...</option>
-                      <option value="1">1. Weight Loss</option>
-                      <option value="2">2. Weight Gain</option>
-                      <option value="3">3. Muscle Building</option>
-                      <option value="4">4. Pregnancy</option>
-                      <option value="5">5. Stroke</option>
-                      <option value="6">6. Diabetes</option>
-                      <option value="7">7. Cholesterol</option>
-                      <option value="8">8. Hypertensi</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
                     <label for="jenisx">Jenis</label>
                     <select name="jenisx" id="jenisx" class="form-control">
                       <option value="">Pilih Jenis Produk</option>
                       <option value="1">1. Makanan</option>
                       <option value="2">2. Minuman</option>
                     </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="calx">Kalori</label>
-                    <input type="text" class="form-control" id="calx" name="calx" placeholder="Kalori Produk(Kcal)">
-                  </div>
-                  <div class="form-group">
-                    <label for="jmlx">Jumlah</label>
-                    <input type="text" class="form-control" id="jmlx" name="jmlx" placeholder="Jumlah Produk">
                   </div>
                   <div class="form-group">
                     <label for="hrgx">Harga</label>
