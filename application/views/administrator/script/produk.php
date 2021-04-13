@@ -2,7 +2,7 @@
     $(document).ready(function(){
         tampilProduk();
         $('#tableProduk').DataTable({
-            "order" : [[10, "desc"]]
+            "order" : [[7, "desc"]]
         });
         
         function tampilProduk(){
@@ -15,32 +15,7 @@
                         var html = '';
                         var i;
                         for(i=0;i<data.length; i++){
-                            var cat  = 0
                             var jenis = 0
-                            if (data[i].kategori == 1){
-                                cat = 'Weight Loss';
-                            }
-                            else if (data[i].kategori == 2){
-                                cat = 'Weight Gain';
-                            }
-                            else if (data[i].kategori == 3){
-                                cat = 'Muscle Building';
-                            }
-                            else if (data[i].kategori == 4){
-                                cat = 'Pregnancy';
-                            }
-                            else if (data[i].kategori == 5){
-                                cat = 'Stroke';
-                            }
-                            else if (data[i].kategori == 6){
-                                cat = 'Diabetes';
-                            }
-                            else if (data[i].kategori == 7){
-                                cat = 'Cholesterol';
-                            }
-                            else if (data[i].kategori == 7){
-                                cat = 'Hypertensi';
-                            }
 
                             if (data[i].jenis == 1){
                                 jenis = 'Makanan';
@@ -52,11 +27,8 @@
                                         '<td>'+(i+1)+'</td>'+
                                         '<td>'+data[i].id_produk+'</td>'+
                                         '<td>'+data[i].kdbrg+'</td>'+
-                                        '<td>'+cat+'</td>'+
                                         '<td>'+jenis+'</td>'+
-                                        '<td>'+data[i].kalori+'</td>'+
                                         '<td>'+data[i].nmbrg+'</td>'+
-                                        '<td>'+data[i].stok+'</td>'+
                                         '<td>'+data[i].harga+'</td>'+
                                         '<td>'+data[i].deskripsi+'</td>'+
                                         '<td>'+data[i].tgl_stok+'</td>'+

@@ -19,17 +19,14 @@
         {
             $tanggal = date('Y-m-d H:i:s');
             $nmbrg = $this->input->post('nmbrg');
-            $jml = $this->input->post('jml');
             $hrg = $this->input->post('hrg');
             $desc = $this->input->post('desc');
-            $kategori = $this->input->post('kategori');
             $jenis = $this->input->post('jenis');
-            $cal = $this->input->post('cal');
 
             // membuat kombinasi kode
             $kode = date('Ymd');
             $jam = date('Hi');
-            $kode = $kode.'DHS'.$kategori.$jenis.$jam;
+            $kode = $kode.'CPGS'.$jenis.$jam;
 
                 $config['upload_path']          = './asset/img/food/';
                 $config['allowed_types']        = 'jpg|png|jpeg';
@@ -48,13 +45,10 @@
                         'nmbrg' => $nmbrg,
                         'kdbrg' => $kode,
                         'jenis' => $jenis,
-                        'stok' => $jml,
                         'harga' => $hrg,
                         'deskripsi' => $desc,
                         'tgl_stok' => $tanggal,
-                        'kategori' => $kategori,
                         'gambar' => $nama,
-                        'kalori' => $cal
                     );
                     
                     
@@ -72,22 +66,16 @@
             $id = $this->input->post('id');
             $tanggal = date('Y-m-d H:i:s');
             $nmbrg = $this->input->post('nmbrg');
-            $kategori = $this->input->post('kategori');
             $jenis = $this->input->post('jenis');
-            $jml = $this->input->post('jml');
             $hrg = $this->input->post('hrg');
             $desc = $this->input->post('desc');
-            $cal = $this->input->post('cal');
 
             $data = array(
                 'nmbrg' => $nmbrg,
-                'kategori' => $kategori,
                 'jenis' => $jenis,
-                'stok' => $jml,
                 'harga' => $hrg,
                 'deskripsi' => $desc,
                 'tgl_stok' => $tanggal,
-                'kalori' => $cal
             );
             $result = $this->M_Product->update_product($data,$id);
             echo json_encode($result);

@@ -23,7 +23,7 @@
           
         <!-- tabel produk -->
         <center>
-        <h1>Pengelolaan Produk Makanan</h1>
+        <h1>Pengelolaan Produk Makanan dan Minuman</h1>
         </center>
         <button type="button" class="btn btn-success mb-10" data-toggle="modal" data-target="#modalTambah">
         <i class="fas fa-plus"></i> Tambah Produk
@@ -34,11 +34,8 @@
             <th>NO</th>
             <th>ID</th>
             <th>Kode Barang</th>
-            <th>Kategori</th>
             <th>Jenis</th>
-            <th>Kalori</th>
             <th>Nama Barang</th>
-            <th>Jumlah</th>
             <th>Harga</th>
             <th style="width: 300px">Deskripsi</th>
             <th>Tanggal Stok</th>
@@ -51,11 +48,8 @@
             <th>NO</th>
             <th>ID</th>
             <th>Kode Barang</th>
-            <th>Kategori</th>
             <th>Jenis</th>
-            <th>Kalori</th>
             <th>Nama Barang</th>
-            <th>Jumlah</th>
             <th>Harga</th>
             <th style="width: 300px">Deskripsi</th>
             <th>Tanggal Stok</th>
@@ -86,25 +80,11 @@
                 <!-- form -->
                 <form id="submit">
                   <div class="form-group">
-                    <label for="nmbrg">Nama Barang</label>
-                    <input type="text" class="form-control" id="nmbrg" name="nmbrg" placeholder="Nama Produk">
+                    <label for="nmbrg">Nama Barang *</label>
+                    <input type="text" class="form-control" id="nmbrg" name="nmbrg" placeholder="Nama Produk" required>
                   </div>
                   <div class="form-group">
-                    <label for="kategori">Kategori</label>
-                    <select name="kategori" id="kategori" class="form-control">
-                      <option value="">Pilih Kategori...</option>
-                      <option value="1">1. Weight Loss</option>
-                      <option value="2">2. Weight Gain</option>
-                      <option value="3">3. Muscle Building</option>
-                      <option value="4">4. Pregnancy</option>
-                      <option value="5">5. Stroke</option>
-                      <option value="6">6. Diabetes</option>
-                      <option value="7">7. Cholesterol</option>
-                      <option value="8">8. Hypertensi</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="jenis">Jenis</label>
+                    <label for="jenis">Jenis *</label>
                     <select name="jenis" id="jenis" class="form-control">
                       <option value="">Pilih Jenis Produk</option>
                       <option value="1">1. Makanan</option>
@@ -112,24 +92,16 @@
                     </select>
                   </div>
                   <div class="form-group">
-                    <label for="cal">Kalori</label>
-                    <input type="text" class="form-control" id="cal" name="cal" placeholder="Kalori Produk(Kcal)">
+                    <label for="hrg">Harga *</label>
+                    <input type="text" class="form-control" id="hrg" name="hrg" placeholder="Harga Produk" required>
                   </div>
                   <div class="form-group">
-                    <label for="jml">Jumlah</label>
-                    <input type="text" class="form-control" id="jml" name="jml" placeholder="Jumlah Produk">
+                    <label for="desc">Deskripsi *</label>
+                    <input type="text" class="form-control" id="desc" name="desc" placeholder="Deskripsi Produk" required>
                   </div>
                   <div class="form-group">
-                    <label for="hrg">Harga</label>
-                    <input type="text" class="form-control" id="hrg" name="hrg" placeholder="Harga Produk">
-                  </div>
-                  <div class="form-group">
-                    <label for="desc">Deskripsi</label>
-                    <input type="text" class="form-control" id="desc" name="desc" placeholder="Deskripsi Produk">
-                  </div>
-                  <div class="form-group">
-                    <label for="file">Gambar Display</label>
-                    <input type="file" id="foto" name="foto" class="form-control">
+                    <label for="file">Gambar Display *</label>
+                    <input type="file" id="foto" name="foto" class="form-control" required>
                   </div>
                 <!-- akhir form -->
               </div>
