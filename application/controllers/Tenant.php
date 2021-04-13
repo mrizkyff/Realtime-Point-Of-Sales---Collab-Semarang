@@ -1,33 +1,36 @@
 <?php
-    class UserList extends CI_Controller
+    class Tenant extends CI_Controller
     {
         public function __construct(){
             parent::__construct();
-            $this->load->model('M_UserList','User');
+            $this->load->model('M_Tenant','Tenant');
         }
-        public function getAllUser(){
-            $hasil = $this->User->get_all_user();
+        public function saveTalent(){
+            
+        }
+        public function getAllTenant(){
+            $hasil = $this->Tenant->get_all_user();
             echo json_encode($hasil);
         }
-        public function getUserById(){  
+        public function getTenantById(){  
             $id = $this->input->post('id');
-            $hasil = $this->User->get_by_id($id);
+            $hasil = $this->Tenant->get_by_id($id);
             echo json_encode($hasil);
         }
-        public function updateUser(){
+        public function updateTenant(){
             $id = $this->input->post('id');
             $level = $this->input->post('level');
             $status = $this->input->post('status');
 
             $where = array(
-                'id_user' => $id
+                'id' => $id
             );
 
             $data = array(
                 'level' => $level,
                 'status' => $status
             );
-            $hasil = $this->User->update_user($where,$data);
+            $hasil = $this->Tenant->update_user($where,$data);
             echo json_encode($hasil);
         }
         public function resetpassword(){    
@@ -35,19 +38,19 @@
             $password = $this->input->post('password');
 
             $where = array(
-                'id_user' => $id
+                'id' => $id
             );
 
             $data = array(
                 'password' => $password
             );
 
-            $hasil = $this->User->update_user($where,$data);
+            $hasil = $this->Tenant->update_user($where,$data);
             echo json_encode($hasil);
         }
-        public function deleteUser(){
+        public function deleteTenant(){
             $id = $this->input->post('id');
-            $hasil = $this->User->delete_user($id);
+            $hasil = $this->Tenant->delete_user($id);
             echo json_encode($hasil);
         }
     }

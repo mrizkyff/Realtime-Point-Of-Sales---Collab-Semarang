@@ -170,33 +170,32 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Daftar User</h1>
+            <h1 class="m-0 text-dark">Daftar Tenant</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">User</li>
+              <li class="breadcrumb-item active">Tenant</li>
             </ol>
             </div><!-- /.col -->
         </div><!-- /.row -->
         <br>
 
 
-        <!-- awal tabel daftar user -->
+        <!-- awal tabel daftar tenant -->
         <!-- <div class="container"> -->
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
                         <div class="col-sm-5">
-                            <h2>User <b>Management</b></h2>
+                            <h2>Tenant <b>Management</b></h2>
                         </div>
                         <div class="col-sm-7">
-                            <a href="#" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Tambah User</span></a>
-                            <a href="#" class="btn btn-primary"><i class="material-icons">&#xE24D;</i> <span>Export to Excel</span></a>						
+                            <a href="#" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Tambah Tenant</span></a>
                         </div>
                     </div>
                 </div>
-                <table class="table table-striped table-hover" id="tableUser">
+                <table class="table table-striped table-hover" id="tableTenant">
                     <thead>
                         <tr>
                             <th>No</th>
@@ -211,46 +210,34 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody id="show_user_list">
+                    <tbody id="show_tenant_list">
                         
                     </tbody>
                 </table>
-                <!-- <div class="clearfix">
-                    <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-                    <ul class="pagination">
-                        <li class="page-item disabled"><a href="#">Previous</a></li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item active"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link">4</a></li>
-                        <li class="page-item"><a href="#" class="page-link">5</a></li>
-                        <li class="page-item"><a href="#" class="page-link">Next</a></li>
-                    </ul>
-                </div> -->
             </div>
         <!-- </div>      -->
-        <!-- akhir tabel daftar user -->
+        <!-- akhir tabel daftar tenant -->
         
-        <!-- modal edit user -->
+        <!-- modal edit tenant -->
         <!-- Button trigger modal -->
         <!-- Modal -->
-        <div class="modal fade" id="modalEditUser" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal fade" id="modalEditTenant" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title"><p id="textEditUser"></p></h5>
+                        <h5 class="modal-title"><p id="textEditTenant"></p></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                     </div>
                     <div class="modal-body">
-                        <input type="hidden" name="idUser" id="idUser">
+                        <input type="hidden" name="idTenant" id="idTenant">
                         <div class="form-group">
                             <label for="role">Role</label>
                             <select class="custom-select" name="role" id="role">
                                 <option selected>Pilih Role</option>
                                 <option value="1">Admin</option>
-                                <option value="2">User</option>
+                                <option value="2">Tenant</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -262,49 +249,40 @@
                                 <option value="3">Suspend</option>
                             </select>
                         </div>
-                        <button type="button" name="btnReset" id="btnReset" class="btn btn-danger" btn-lg btn-block">Reset Password</button>
+                        <button type="button" name="btnReset" id="btnReset" class="btn btn-danger btn-lg btn-block">Reset Password</button>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="btnEditUser">Simpan</button>
+                        <button type="button" class="btn btn-primary" id="btnEditTenant">Simpan</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- modal akhir edit user -->
+        <!-- modal akhir edit tenant -->
 
-        <!-- modal hapus user -->
+        <!-- modal hapus tenant -->
         <!-- Button trigger modal -->        
         <!-- Modal -->
-        <div class="modal fade" id="modalHapusUser" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+        <div class="modal fade" id="modalHapusTenant" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                         <div class="modal-header">
-                                <h5 class="modal-title">Hapus user</h5>
+                                <h5 class="modal-title">Hapus tenant</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                             </div>
                     <div class="modal-body">
-                        <input type="hidden" id="idUserx">
+                        <input type="hidden" id="idTenantx">
                         <div class="container-fluid">
-                            <p id="textHapusUser"></p>
+                            <p id="textHapusTenant"></p>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-danger" id="btnHapusUser">Hapus</button>
+                        <button type="button" class="btn btn-danger" id="btnHapusTenant">Hapus</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <script>
-            $('#exampleModal').on('show.bs.modal', event => {
-                var button = $(event.relatedTarget);
-                var modal = $(this);
-                // Use above variables to manipulate the DOM
-                
-            });
-        </script>
-        <!-- akhir modal hapus user -->
+        <!-- akhir modal hapus tenant -->

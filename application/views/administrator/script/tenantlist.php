@@ -1,15 +1,15 @@
 <script type="text/javascript">
     $(document).ready(function(){
-        tampilUser();
-        $('#tableUser').dataTable({
+        tampilTenant();
+        $('#tableTenant').dataTable({
             "order" : [[6, 'desc']]
         });
         console.log('halo');
 
-        function tampilUser(){
+        function tampilTenant(){
             $.ajax({
                 type: 'GET',
-                url: '<?php echo base_url('UserList/getAllUser') ?>',
+                url: '<?php echo base_url('Tenant/getAllTenant') ?>',
                 async: false,
                 dataType: 'JSON',
                 success : function(data){
@@ -22,7 +22,7 @@
                                 role = "Admin";
                             }
                             else if(data[i].level == 2){
-                                role = "User";
+                                role = "Tenant";
                             }
 
                             if (data[i].status == 1){
@@ -46,26 +46,26 @@
                                         '<td>'+role+'</td>'+
                                         '<td style="width:100px;">'+status+'</td>'+
                                         '<td style "text-align:right;">'+
-                                            '<a href="javascript:;" class="text-info item_edit" id="'+data[i].id_user+'" username="'+data[i].username+'">   <i class="fas fa-edit"></i>  </a>'+' '+
-                                            '<a href="javascript:;" class="text-danger item_hapus" id="'+data[i].id_user+'" username="'+data[i].username+'"> <i class="fas fa-trash"></i> </a>'+' '+
+                                            '<a href="javascript:;" class="text-info item_edit" id="'+data[i].id+'" username="'+data[i].username+'">   <i class="fas fa-edit"></i>  </a>'+' '+
+                                            '<a href="javascript:;" class="text-danger item_hapus" id="'+data[i].id+'" username="'+data[i].username+'"> <i class="fas fa-trash"></i> </a>'+' '+
                                         '</td>'+
                                     '</tr>';
                         }
-                        $('#show_user_list').html(html);
+                        $('#show_tenant_list').html(html);
                     }
             })
 
-            // get edit user
-            $('#show_user_list').on('click','.item_edit',function(){
+            // get edit tenant
+            $('#show_tenant_list').on('click','.item_edit',function(){
                 id = $(this).attr('id')
                 username = $(this).attr('username')
-                $('#modalEditUser').modal('show');
-                $('#textEditUser').text("Form edit user "+username)
-                $('#idUser').val(id)
+                $('#modalEditTenant').modal('show');
+                $('#textEditTenant').text("Form edit tenant "+username)
+                $('#idTenant').val(id)
                 
                 $.ajax({
                     type: "POST",
-                    url: "<?= base_url('userlist/getUserById')?>",
+                    url: "<?= base_url('Tenant/getTenantById')?>",
                     data: {id:id},
                     dataType: "JSON",
                     success: function (response) {
@@ -75,26 +75,26 @@
                 });
             })
 
-            // get hapus user
-            $('#show_user_list').on('click','.item_hapus',function(){
+            // get hapus tenant
+            $('#show_tenant_list').on('click','.item_hapus',function(){
                 id = $(this).attr('id')
                 username = $(this).attr('username')
                 
-                $('#modalHapusUser').modal('show');
-                $('#textHapusUser').text("yakin untuk meghapus "+username+'?')
-                $('#idUserx').val(id)
+                $('#modalHapusTenant').modal('show');
+                $('#textHapusTenant').text("yakin untuk meghapus "+username+'?')
+                $('#idTenantx').val(id)
             })
 
 
             // aksi reset password
             $('#btnReset').on('click',function(){
-                var id = $('#idUser').val();
+                var id = $('#idTenant').val();
                 var yakin = confirm('Yakin untuk reset password?');
                 if (yakin){
                     var password = prompt('Masukkan password baru ');
                     $.ajax({
                         type: "POST",
-                        url: "<?= base_url('userlist/resetpassword')?>",
+                        url: "<?= base_url('Tenant/resetpassword')?>",
                         data: {id:id,password:password},
                         dataType: "JSON",
                         success: function (response) {
@@ -108,37 +108,37 @@
                 }
             })
 
-            // aksi edit user
-            $('#btnEditUser').on('click',function(){
-                var id = $('#idUser').val();
+            // aksi edit tenant
+            $('#btnEditTenant').on('click',function(){
+                var id = $('#idTenant').val();
                 var level = $('#role').val();
                 var status = $('#status').val();
                 // simpan
                 $.ajax({
                     type: "POST",
-                    url: "<?= base_url('userlist/updateUser')?>",
+                    url: "<?= base_url('Tenant/updateTenant')?>",
                     data: {id:id,level:level, status:status},
                     dataType: "JSON",
                     success: function (response) {
-                        $('#modalEditUser').modal('hide');
-                        alert('Data user berhasil di update!');
-                        tampilUser();
+                        $('#modalEditTenant').modal('hide');
+                        alert('Data tenant berhasil di update!');
+                        tampilTenant();
                     }
                 });
             })
 
 
-            // aksi hapus user
-            $('#btnHapusUser').on('click',function(){
+            // aksi hapus tenant
+            $('#btnHapusTenant').on('click',function(){
                 $.ajax({
                     type: "POST",
-                    url: "<?= base_url('userlist/deleteUser')?>",
+                    url: "<?= base_url('Tenant/deleteTenant')?>",
                     data: {id:id},
                     dataType: "JSON",
                     success: function (response) {
-                        alert('User berhasil dihapus!');  
-                        $('#modalHapusUser').modal('hide');     
-                        tampilUser();                     
+                        alert('Tenant berhasil dihapus!');  
+                        $('#modalHapusTenant').modal('hide');     
+                        tampilTenant();                     
                     }
                 });
             })
