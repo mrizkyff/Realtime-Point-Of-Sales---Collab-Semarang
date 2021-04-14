@@ -101,6 +101,14 @@
                     <input type="text" class="form-control" id="desc" name="desc" placeholder="Deskripsi Produk" required>
                   </div>
                   <div class="form-group">
+                    <label for="tersedia">Ketersediaan *</label>
+                    <select name="tersedia" id="tersedia" class="form-control">
+                      <option value="">Pilih Ketersediaan</option>
+                      <option value="1">Tersedia</option>
+                      <option value="2">Tidak Tersedia</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
                     <label for="file">Gambar Display *</label>
                     <input type="file" id="foto" name="foto" class="form-control" required>
                   </div>
@@ -174,6 +182,14 @@
                   <div class="form-group">
                     <label for="descx">Deskripsi</label>
                     <input type="text" class="form-control" id="descx" name="descx" placeholder="Deskripsi Produk">
+                  </div>
+                  <div class="form-group">
+                    <label for="tersediax">Ketersediaan *</label>
+                    <select name="tersediax" id="tersediax" class="form-control">
+                      <option value="">Pilih Ketersediaan</option>
+                      <option value="1">Tersedia</option>
+                      <option value="2">Tidak Tersedia</option>
+                    </select>
                   </div>
                   <div class="form-group">
                     <label for="filex">Gambar Display</label>

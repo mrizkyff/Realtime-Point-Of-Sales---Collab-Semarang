@@ -31,7 +31,7 @@
 			// jangan pakai bintang nanti tidak bisa search
 			$this->datatables->select('id_produk, kdbrg, jenis, nmbrg, harga, deskripsi, tgl_stok, gambar, tersedia, id_tenant');
 			$this->datatables->from('tb_produk');
-            $this->datatables->add_column('gambar','<img src="http://localhost/collab_pos/asset/img/food/$1" class="img-thumbnail" alt="">', 'gambar');
+            $this->datatables->add_column('gambar','<img src="http://localhost/collab_pos/asset/img/food/$1" class="img-thumbnail" style="width: 100px;" alt="">', 'gambar');
 			$this->datatables->add_column('aksi', '
 			<a href="javascript:void(0);" class="edit_record badge badge-info" data-id="$1" data-kdbrg="$2" data-jenis="$3" data-nmbrg="$4" data-harga="$5" data-deskripsi="$6" data-tersedia="$9"><i class="fas fa-edit lead"></i> Edit</a>
 			<a href="javascript:void(0);" class="hapus_record badge badge-danger" data-id="$1" data-nmbrg="$4"><i class="fas fa-trash-alt lead"></i> Hapus</a>

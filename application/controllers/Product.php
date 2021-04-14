@@ -23,9 +23,10 @@
         {
             $tanggal = date('Y-m-d H:i:s');
             $nmbrg = $this->input->post('nmbrg');
+            $jenis = $this->input->post('jenis');
             $hrg = $this->input->post('hrg');
             $desc = $this->input->post('desc');
-            $jenis = $this->input->post('jenis');
+            $tersedia = $this->input->post('ketersediaan');
 
             // membuat kombinasi kode
             $kode = date('Ymd');
@@ -53,6 +54,7 @@
                         'deskripsi' => $desc,
                         'tgl_stok' => $tanggal,
                         'gambar' => $nama,
+                        'tersedia' => $tersedia,
                     );
                     
                     
@@ -73,6 +75,7 @@
             $jenis = $this->input->post('jenis');
             $hrg = $this->input->post('hrg');
             $desc = $this->input->post('desc');
+            $tersedia = $this->input->post('tersedia');
 
             $data = array(
                 'nmbrg' => $nmbrg,
@@ -80,6 +83,7 @@
                 'harga' => $hrg,
                 'deskripsi' => $desc,
                 'tgl_stok' => $tanggal,
+                'tersedia' => $tersedia
             );
             $result = $this->M_Product->update_product($data,$id);
             echo json_encode($result);

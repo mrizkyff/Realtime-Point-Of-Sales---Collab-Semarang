@@ -48,7 +48,7 @@
                 {"data": "aksi", "orderable": false},
             ],
             // order menurut urutan kolom
-            order: [[1, 'desc']],
+            order: [[6, 'desc']],
             rowCallback: function(row, data, iDisplayIndex) {
                 var info = this.fnPagingInfo();
                 var page = info.iPage;
@@ -78,8 +78,10 @@
                             $('#jenis').val('');
                             $('#hrg').val('');
                             $('#desc').val('');
+                            $('#tersedia').val('');
+                            $('#tableProduk').DataTable().ajax.reload();
                             alert('Produk Berhasil Ditambahkan');
-                            tampilProduk();
+
                         }
                     });
                 });
@@ -88,33 +90,23 @@
         
 
         // get hapus
-        $('#show_produk').on('click','.item_hapus',function(){
-            var id = $(this).attr('id');
-            var nama = $(this).attr('nama');
+        $('#tableProduk').on('click','.hapus_record',function(){
+            var id = $(this).data('id');
+            var nama = $(this).data('nmbrg');
             $('#modalHapus').modal('show');
             $('#id_delete').val(id);
             $('#textHapus').text('Anda yakin untuk menghapus item '+nama+'?');
         })
 
         // get update
-        $('#show_produk').on('click','.item_edit',function(){
-            var id = $(this).attr('id');
-            $.ajax({
-                url : '<?php echo base_url('product/getByCode')?>',
-                type : 'POST',
-                dataType : 'JSON',
-                data : {id:id},
-                success : function(data){
-                    $('#modalEdit').modal('show');
-                    $('#id_edit').val(id);
-                    $('#nmbrgx').val(data[0]['nmbrg'])
-                    $('#jenisx').val(data[0]['jenis'])
-                    $('#hrgx').val(data[0]['harga'])
-                    $('#descx').val(data[0]['deskripsi'])
-                    console.log(data[0]['nmbrg']);
-                    
-                }
-            })
+        $('#tableProduk').on('click','.edit_record',function(){
+            $('#modalEdit').modal('show');
+            $('#id_edit').val();
+            $('#nmbrgx').val($(this).data('nmbrg'))
+            $('#jenisx').val($(this).data('jenis'))
+            $('#hrgx').val($(this).data('harga'))
+            $('#descx').val($(this).data('deskripsi'))
+            $('#tersediax').val($(this).data('tersedia'))
         })
 
         // aksi hapus
@@ -126,10 +118,9 @@
                 dataType : 'JSON',
                 data : {id:id},
                 success : function(data){
-                    alert('Produk '+id+' berhasil dihapus!');
                     $('#modalHapus').modal('hide');
-                    tampilProduk();
-                    $('#tableProduk').DataTable();
+                    $('#tableProduk').DataTable().ajax.reload();
+                    alert('Produk '+id+' berhasil dihapus!');
                     // console.log(data);
                     
                 }
@@ -145,7 +136,8 @@
             var jenis = $('#jenisx').val();
             var hrg = $('#hrgx').val();
             var desc = $('#descx').val();
-            
+            var tersedia = $('#tersediax').val();
+
             $.ajax({
                 type :'POST',
                 url : '<?php echo base_url('product/update') ?>',
@@ -156,15 +148,18 @@
                     jenis:jenis,
                     hrg:hrg,
                     desc:desc,
+                    tersedia:tersedia,
                 },
                 success : function(data){
-                    alert('Produk berhasil di update!');
-                    tampilProduk();
                     $('#nmbrgx').val('');
                     $('#jenisx').val('');
                     $('#hrgx').val('');
                     $('#descx').val('');
+                    $('#tersediax').val('');
                     $('#modalEdit').modal('hide');
+                    $('#tableProduk').DataTable().ajax.reload();
+                    alert('Produk berhasil di update!');
+                    console.log(data);
                 }
             })
         })
