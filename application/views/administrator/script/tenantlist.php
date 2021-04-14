@@ -24,6 +24,9 @@
                             else if(data[i].level == 2){
                                 role = "Tenant";
                             }
+                            else if(data[i].level == 3){
+                                role = "Kasir";
+                            }
 
                             if (data[i].status == 1){
                                 status = '<span class="status text-success">&bull;</span>Aktif'
@@ -84,6 +87,31 @@
                 $('#textHapusTenant').text("yakin untuk meghapus "+username+'?')
                 $('#idTenantx').val(id)
             })
+
+            
+            // aksi tambah tenant
+            $('#submit').submit(function(e){
+                e.preventDefault(); 
+                    $.ajax({
+                        url:'<?php echo base_url();?>tenant/do_upload',
+                        type:"post",
+                        data:new FormData(this),
+                        processData:false,
+                        contentType:false,
+                        cache:false,
+                        async:false,
+                        success: function(data){
+                            $('#modalTambah').modal('hide');
+                            $('#nmbrg').val('');
+                            $('#jenis').val('');
+                            $('#hrg').val('');
+                            $('#desc').val('');
+                            alert('Tenant/User Berhasil Ditambahkan');
+                            console.log(data);
+                            tampilTenant();
+                        }
+                    });
+                });
 
 
             // aksi reset password

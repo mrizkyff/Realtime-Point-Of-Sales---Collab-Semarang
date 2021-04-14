@@ -1,6 +1,10 @@
 <?php
     class M_Tenant extends CI_Model
     {
+        public function save_user($data){
+            $result = $this->db->insert('tb_tenant',$data);
+            return $result;
+        }
         public function get_all_user(){
             return $this->db->get('tb_tenant')->result();
         }

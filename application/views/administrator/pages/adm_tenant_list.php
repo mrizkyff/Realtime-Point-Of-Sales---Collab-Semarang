@@ -183,7 +183,6 @@
 
 
         <!-- awal tabel daftar tenant -->
-        <!-- <div class="container"> -->
             <div class="table-wrapper">
                 <div class="table-title">
                     <div class="row">
@@ -191,7 +190,7 @@
                             <h2>Tenant <b>Management</b></h2>
                         </div>
                         <div class="col-sm-7">
-                            <a href="#" class="btn btn-primary"><i class="material-icons">&#xE147;</i> <span>Tambah Tenant</span></a>
+                            <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#modalTambahTenant"><i class="material-icons">&#xE147;</i> <span>Tambah Tenant</span></a>
                         </div>
                     </div>
                 </div>
@@ -215,8 +214,83 @@
                     </tbody>
                 </table>
             </div>
-        <!-- </div>      -->
         <!-- akhir tabel daftar tenant -->
+
+
+        <!-- modal tambah tenant/user -->
+        <!-- Button trigger modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="modalTambahTenant" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tambahkan Tenant atau User</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>
+                    <form id="submit">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="fname">Nama Depan *</label>
+                            <input class="form-control" type="text" name="fname" id="fname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Nama Belakang *</label>
+                            <input class="form-control" type="text" name="lname" id="lname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username *</label>
+                            <input class="form-control" type="text" name="username" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input class="form-control" type="email" name="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telp">Telp *</label>
+                            <input class="form-control" type="text" name="telp" id="telp" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="alamat">Alamat *</label>
+                            <input class="form-control" type="text" name="alamat" id="alamat" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Passoword *</label>
+                            <input class="form-control" type="password" name="password" id="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">Role *</label>
+                            <select class="custom-select" name="role1" id="role1" required>
+                                <option selected>Pilih Role</option>
+                                <option value="1">Admin</option>
+                                <option value="2">Tenant</option>
+                                <option value="3">Kasir</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="status">Status *</label>
+                            <select class="custom-select" name="status1" id="status1" required>
+                                <option selected>Pilih Status</option>
+                                <option value="1">Active</option>
+                                <option value="2">Nonactive</option>
+                                <option value="3">Suspend</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="foto">Foto *</label>
+                            <input type="file" id="foto" name="foto" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary" id="btnTambahTenant">Simpan</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- akhir modal tambah tenatn/user -->
         
         <!-- modal edit tenant -->
         <!-- Button trigger modal -->
@@ -238,6 +312,7 @@
                                 <option selected>Pilih Role</option>
                                 <option value="1">Admin</option>
                                 <option value="2">Tenant</option>
+                                <option value="3">Kasir</option>
                             </select>
                         </div>
                         <div class="form-group">
