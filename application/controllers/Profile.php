@@ -16,35 +16,52 @@
             $email = $this->input->post('email');
             $telp = $this->input->post('telp');
             $alamat = $this->input->post('alamat');
+            $nmtenant = $this->input->post('nmtenant');
 
             $config['upload_path']          = './asset/img/user/';
             $config['allowed_types']        = 'jpg|png|jpeg';
             $config['encrypt_name']        = TRUE;
-        
             $this->load->library('upload', $config);
-            if($this->upload->do_upload('foto')){
-                $upload_data = $this->upload->data();
-                $nama_gambar = $upload_data['file_name'];
-
-                // variabel where
-
-                //variabel array data buat dimasukin ke db
+        
+            if(!empty($_FILES['foto']['name'])){
+                if($this->upload->do_upload('foto')){
+                    $upload_data = $this->upload->data();
+                    $nama_gambar = $upload_data['file_name'];
+    
+                    // variabel where
+    
+                    //variabel array data buat dimasukin ke db
+                    $data = array(
+                        'password' => $password,
+                        'email' => $email,
+                        'telp' => $telp,
+                        'nama_tenant' => $nmtenant,
+                        'alamat' => $alamat,
+                        'foto' => $nama_gambar
+                    );
+    
+    
+                    //panggil model buat insert
+                    $hasil = $this->Profile->update($id,$data);
+                    echo json_encode($hasil);
+                }
+                else{
+                    
+                    echo 'gagal';
+                }
+            }
+            else{
                 $data = array(
                     'password' => $password,
                     'email' => $email,
                     'telp' => $telp,
+                    'nama_tenant' => $nmtenant,
                     'alamat' => $alamat,
-                    'foto' => $nama_gambar
                 );
 
 
                 //panggil model buat insert
                 $hasil = $this->Profile->update($id,$data);
-                echo json_encode($hasil);
-            }
-            else{
-                
-                echo 'gagal';
             }
         }
     }
