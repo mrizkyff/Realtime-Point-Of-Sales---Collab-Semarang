@@ -32,7 +32,7 @@
                     'username' => $username,
                     'status' => "login",
                     'foto' => $foto,
-                    'idUser' => $idUser[0]->id_user,
+                    'idUser' => $idUser[0]->id,
                     'permition' => $level[0]->status,
                     'level' => $level[0]->level,
                 );
