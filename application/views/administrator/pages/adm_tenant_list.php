@@ -199,6 +199,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama</th>						
+                            <th>Nama Tenant</th>						
                             <th>Username</th>						
                             <th>Email</th>						
                             <th>Telp</th>						
@@ -244,6 +245,10 @@
                             <input class="form-control" type="text" name="username" id="username" required>
                         </div>
                         <div class="form-group">
+                            <label for="nmtenant">Nama Tenant</label>
+                            <input class="form-control" type="nmtenant" name="nmtenant" id="nmtenant" required>
+                        </div>
+                        <div class="form-group">
                             <label for="email">E-mail *</label>
                             <input class="form-control" type="email" name="email" id="email" required>
                         </div>
@@ -256,7 +261,7 @@
                             <input class="form-control" type="text" name="alamat" id="alamat" required>
                         </div>
                         <div class="form-group">
-                            <label for="password">Passoword *</label>
+                            <label for="password">Password *</label>
                             <input class="form-control" type="password" name="password" id="password" required>
                         </div>
                         <div class="form-group">

@@ -37,6 +37,10 @@
                         <input type='text' id='lname' name='lname' class='form-control' disabled>
                     </div>
                     <div class='form-group'>
+                        <label for='nmtenant'>Nama Tenant</label>
+                        <input type='text' id='nmtenant' name='nmtenant' class='form-control'>
+                    </div>
+                    <div class='form-group'>
                         <label for='username'>Username</label>
                         <input type='text' id='username' name='username' class='form-control' disabled>
                     </div>

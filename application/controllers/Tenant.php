@@ -23,6 +23,7 @@
                 $data = array(
                     'f_name' => $this->input->post('fname'),
                     'l_name' => $this->input->post('lname'),
+                    'nama_tenant' => $this->input->post('nmtenant'),
                     'username' => $this->input->post('username'),
                     'password' => $this->input->post('password'),
                     'email' => $this->input->post('email'),

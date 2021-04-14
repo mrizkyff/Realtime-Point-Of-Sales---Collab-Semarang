@@ -19,6 +19,9 @@
                     else if(response['level']==2){
                         lvl = "User"
                     }
+                    else if(response['level']==3){
+                        lvl = "Kasir"
+                    }
 
                     if(response['status'] == 1){
                         stat = 'Active'
@@ -32,6 +35,7 @@
 
                     $('#fname').val(response['f_name'])
                     $('#lname').val(response['l_name'])
+                    $('#nmtenant').val(response['nama_tenant'])
                     $('#username').val(response['username'])
                     $('#password').val(response['password'])
                     $('#email').val(response['email'])
@@ -48,19 +52,6 @@
             $('#submit').submit(function(e){
                 e.preventDefault(); 
                 var id = $('#idUser').val();
-                    // $.ajax({
-                    //     url:'<?php echo base_url();?>profile/do_upload',
-                    //     type:"post",
-                    //     data:new FormData(this),
-                    //     processData:false,
-                    //     contentType:false,
-                    //     cache:false,
-                    //     async:false,
-                    //     success: function(data){
-                    //         // console.log(data)
-                            
-                    //     }
-                    // });
                     $.ajax({
                         type: "POST",
                         url: "<?= base_url('profile/do_upload')?>",
@@ -73,7 +64,7 @@
                             alert('Profil berhasil diperbarui, silakan login!');
                             // console.log(response);
                             // tampilProfile();
-                            window.location = "<?= base_url('Login') ?>";
+                            window.location = "<?= base_url('Login/logout') ?>";
                         }
                     });
                 });

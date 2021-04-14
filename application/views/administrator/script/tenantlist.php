@@ -40,7 +40,8 @@
                             
                             html += '<tr>'+
                                         '<td style="width:20px;">'+(i+1)+'</td>'+
-                                        '<td style="width:200px"><a href="#"><img src="<?php echo base_url()?>asset/img/user/'+data[i].foto+'" class="avatar" alt="Avatar" style="width:25px; height:25px"> '+data[i].f_name+'</a></td>'+
+                                        '<td style="width:200px"><a href="#"><img src="<?php echo base_url()?>asset/img/user/'+data[i].foto+'" class="avatar" alt="Avatar" style="width:25px; height:25px"> '+data[i].f_name+' '+data[i].l_name+'</a></td>'+
+                                        '<td>'+data[i].nama_tenant+'</td>'+
                                         '<td>'+data[i].username+'</td>'+
                                         '<td>'+data[i].email+'</td>'+
                                         '<td>'+data[i].telp+'</td>'+
