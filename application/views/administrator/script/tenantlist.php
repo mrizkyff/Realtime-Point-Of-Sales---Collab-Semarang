@@ -101,7 +101,7 @@
                         cache:false,
                         async:false,
                         success: function(data){
-                            $('#modalTambah').modal('hide');
+                            $('#modalTambahTenant').modal('hide');
                             $('#nmbrg').val('');
                             $('#jenis').val('');
                             $('#hrg').val('');
